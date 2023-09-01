@@ -1,0 +1,119 @@
+1.Write a blog on Difference between HTTP1.1 vs HTTP2
+
+Title: A Tale of Two Protocols: HTTP/1.1 vs. HTTP/2
+
+Introduction:
+The World Wide Web has come a long way since its inception, 
+and the protocols governing its functioning have evolved to keep pace with the demands of modern web applications.
+Two of the most prominent HTTP protocols in use today are HTTP/1.1 and HTTP/2. 
+In this blog, we'll explore the key differences between these two protocols and understand how HTTP/2 has significantly
+improved the web's performance and efficiency.
+
+HTTP/1.1: The Old Reliable
+HTTP/1.1, introduced in 1999, has been the backbone of the web for over two decades. 
+While it has served us well, the growth of the internet and the increasing complexity of web applications have exposed its limitations.
+
+1.Resource Loading: In HTTP/1.1, each resource (e.g., HTML, CSS, JavaScript, images) is fetched sequentially. 
+  This means that if a browser requests multiple resources, 
+  it has to wait for each response before requesting the next one, leading to a phenomenon known as the "head-of-line blocking."
+
+2.Header Overhead: HTTP/1.1 sends headers with each request and response.
+  This redundancy can lead to significant overhead, especially when requesting multiple resources from the same server.
+
+3.No Built-in Compression: HTTP/1.1 lacks built-in support for data compression. 
+  While gzip or deflate compression can be used, they are not always implemented by servers or supported by clients.
+
+HTTP/2: A Modern Marvel
+Recognizing the need for a more efficient protocol, the Internet Engineering Task Force (IETF) introduced HTTP/2 in 2015. 
+HTTP/2 builds upon the foundation of HTTP/1.1 but brings several groundbreaking improvements.
+
+1.Multiplexing: HTTP/2 allows multiple requests and responses to be multiplexed over a single connection. 
+  This eliminates the head-of-line blocking issue, enabling resources to load in parallel, greatly improving page load times.
+
+2.Header Compression: HTTP/2 uses header compression, reducing the overhead associated with headers. 
+The HPACK algorithm efficiently compresses headers, resulting in smaller packet sizes and faster data transmission.
+
+3.Server Push: One of the most significant features of HTTP/2 is server push. 
+  This allows the server to proactively send resources to the client before they are explicitly requested. 
+  For example, if a server knows that a page requires certain CSS and JavaScript files, 
+  it can push those resources to the client without waiting for the client to request them, further improving performance.
+
+4.Binary Protocol: HTTP/2 uses a binary protocol instead of plain text, 
+  which makes it more efficient for both parsing and transmission.
+
+5.Stream Prioritization: HTTP/2 allows for prioritization of streams, 
+ensuring that critical resources are loaded first, improving the user experience.
+
+Conclusion:
+HTTP/2 is a significant improvement over its predecessor, 
+HTTP/1.1. Its focus on reducing latency, improving efficiency, 
+and enhancing performance has made it the preferred choice for modern web applications. However, 
+it's worth noting that while HTTP/2 is widely adopted, not all web servers and clients support it. 
+Developers should ensure that their infrastructure is compatible with HTTP/2 to fully harness its benefits.
+
+In summary, the transition from HTTP/1.1 to HTTP/2 represents a leap forward in web performance and efficiency,
+addressing many of the shortcomings of the previous protocol. As the web continues to evolve, 
+protocols like HTTP/2 play a crucial role in ensuring that users enjoy faster and more responsive web experiences.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.Write a blog about objects and its internal representation in Javascript
+
+    Title: Objects and Their Internal Representation in JavaScript
+
+Introduction:
+JavaScript, as one of the most popular programming languages for web development, 
+relies heavily on objects. Objects are at the core of JavaScript's flexible and dynamic nature.
+In this blog post, we'll delve into the concept of objects in JavaScript and explore their internal representation, 
+shedding light on how they work under the hood.
+
+Understanding JavaScript Objects:
+In JavaScript, objects are composite data types that can hold a collection of key-value pairs, 
+where the keys are strings (or Symbols) and the values can be of various data types, including other objects. 
+Objects serve as a fundamental building block for structuring and organizing data in JavaScript applications.
+// creating a simple objects....
+
+let person ={
+    name: 'Murali',
+    age:28,
+    isDeveloper:true
+};
+Objects can be used to represent real-world entities, such as users, products, 
+or any data structure that requires organization and encapsulation.
+
+Internal Representation of Objects:
+JavaScript engines, like V8 (used in Chrome) or SpiderMonkey (used in Firefox), 
+manage objects using a variety of internal data structures. 
+Understanding these internal representations can provide insight into how JavaScript objects work efficiently.
+
+1.Properties and Prototypes:
+
+  Each object in JavaScript has a set of properties. These properties are stored in a property map, 
+  which is essentially a hash table where keys are property names, and values are property attributes.
+  Objects in JavaScript can have prototypes. 
+  A prototype is essentially another object that is used as a fallback source for property lookups 
+  if the property is not found on the object itself. This mechanism enables inheritance and property delegation.
+
+2.Hidden Classes and Shape Changes:
+
+  JavaScript engines often use hidden classes or shapes to optimize property access. 
+  When an object is created, the engine assigns it a hidden class or shape. This class defines the object's layout in memory,
+  optimizing property access.
+  When you add or remove properties from an object, its hidden class may change, potentially causing performance 
+  penalties due to "shape changes."
+
+2.Memory Management:
+
+  Objects in JavaScript are allocated memory dynamically and managed by the garbage collector. When an object is no longer reachable, 
+  the garbage collector reclaims its memory.
+  Cyclic references (references between objects forming a loop) can lead to memory leaks if not managed properly.
+
+3.Primitive vs. Reference:
+
+  JavaScript differentiates between primitive values (like strings, numbers, booleans) and reference values (like objects and functions). 
+  Primitive values are stored directly in variables, while reference values are stored as references to memory locations.
+Conclusion:
+  JavaScript objects are a fundamental part of the language, offering a versatile way to structure and manage data. 
+  Understanding the internal representation of objects can help developers write more efficient and performant code. 
+  It also highlights the importance of using objects wisely, considering memory management, property access patterns, 
+  and the potential impact on an application's performance. By mastering objects in JavaScript, developers can leverage 
+  this powerful feature to create robust and flexible web applications.
